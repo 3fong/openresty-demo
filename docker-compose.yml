@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  resty:
+    image: openresty/openresty:1.15.8.1rc1-bionic
+    container_name: resty    
+    volumes:
+      - /opt/workspace/openresty-hello/file:/home/file
+      - /opt/workspace/openresty-hello/conf:/usr/local/openresty/nginx/conf
+      - /opt/workspace/openresty-hello/logs:/usr/local/openresty/nginx/conf/logs
+    ports:
+    - "80:80"
+    restart: on-failure
